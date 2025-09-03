@@ -4,10 +4,10 @@ import { auth, isUser } from '../middleware/auth.js'; // Importa también isUser
 
 const cartRouter = express.Router();
 
-// 🔹 Middleware global: primero valida el token con `auth` y luego verifica que el rol sea 'user'
+// Middleware global: primero valida el token con `auth` y luego verifica que el rol sea 'user'
 cartRouter.use(auth, isUser);
 
-// 🔹 CRUD del carrito (solo accesible para usuarios autenticados con rol 'user')
+// CRUD del carrito (solo accesible para usuarios autenticados con rol 'user')
 cartRouter.post('/', cartController.addToCart);        // Agregar producto al carrito
 cartRouter.get('/', cartController.getCart);           // Obtener productos del carrito
 cartRouter.get('/total', cartController.getTotal);     // Calcular total del carrito
