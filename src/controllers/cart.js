@@ -2,7 +2,7 @@ import Cart from '../models/cart.js';
 import Product from '../models/products.js';
 
 const cartController = {
-  // 🔹 Crear (Agregar producto al carrito)
+  // Crear (Agregar producto al carrito)
   addToCart: async (req, res) => {
     try {
       const { id_product } = req.body;
@@ -26,7 +26,7 @@ const cartController = {
     }
   },
 
-  // 🔹 Leer (Obtener productos del carrito con populate)
+  // Leer (Obtener productos del carrito con populate)
   getCart: async (req, res) => {
     try {
       const userId = req.user.id;
@@ -39,7 +39,7 @@ const cartController = {
     }
   },
 
-  // 🔹 Leer extra (Calcular el total del carrito)
+  // Leer extra (Calcular el total del carrito)
   getTotal: async (req, res) => {
     try {
       const userId = req.user.id;
@@ -57,7 +57,7 @@ const cartController = {
     }
   },
 
-  // 🔹 Actualizar (Modificar cantidad de un producto en el carrito)
+  // Actualizar (Modificar cantidad de un producto en el carrito)
   updateQuantity: async (req, res) => {
     try {
       const { id_cart } = req.params;
@@ -82,7 +82,7 @@ const cartController = {
     }
   },
 
-  // 🔹 Eliminar (Quitar un producto del carrito)
+  // Eliminar (Quitar un producto del carrito)
   removeFromCart: async (req, res) => {
     try {
       const { id_cart } = req.params;
