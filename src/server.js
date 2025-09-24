@@ -21,7 +21,11 @@ const PORT = process.env.PORT || 5000;
 // Middlewares globales
 server.use(express.json()); // Permite leer JSON en las peticiones
 server.use(morgan('dev')); // Logger de peticiones HTTP
-server.use(cors()); // Habilita CORS para peticiones desde otros orígenes
+server.use(cors({
+  origin: "http://my-app-frontend-yacm.s3-website-us-east-1.amazonaws.com", // URL pública de tu bucket
+  methods: "GET,POST,PUT,DELETE",
+  credentials: true
+}));
 
 // Definición de rutas principales
 server.use('/api/users', usersRouter);
