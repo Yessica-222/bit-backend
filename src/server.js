@@ -16,6 +16,7 @@ import paymentRouter from './routes/payment.js';
 
 dotenv.config(); // Cargar variables de entorno
 const server = express();
+const HOST = process.env.HOST || '0.0.0.0';
 const PORT = process.env.PORT || 5000;
 
 // Middlewares globales
@@ -38,6 +39,6 @@ server.use('/api/payment', paymentRouter);
 mongoose.connect(process.env.MONGODB_URI)
   .then(() => {
     console.log(' Conectado a MongoDB');
-    server.listen(PORT, '0.0.0.0', () => console.log(`Servidor corriendo en http://0.0.0.0:${PORT}`));
+    server.listen(PORT, HOST, () => console.log(`Servidor corriendo en http://0.0.0.0:${PORT}`));
   })
   .catch((err) => console.error(' Error al conectar MongoDB:', err));
