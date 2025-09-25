@@ -39,6 +39,7 @@ server.use('/api/payment', paymentRouter);
 mongoose.connect(process.env.MONGODB_URI)
   .then(() => {
     console.log(' Conectado a MongoDB');
-    server.listen(PORT, HOST, () => console.log(`Servidor corriendo en http://0.0.0.0:${PORT}`));
+    server.listen(PORT, HOST, () => {
+  console.log(`Servidor corriendo en http://${HOST}:${PORT}`);
+});
   })
-  .catch((err) => console.error(' Error al conectar MongoDB:', err));
