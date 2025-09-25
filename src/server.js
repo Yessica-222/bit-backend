@@ -22,9 +22,7 @@ const PORT = process.env.PORT || 5000;
 server.use(express.json()); // Permite leer JSON en las peticiones
 server.use(morgan('dev')); // Logger de peticiones HTTP
 server.use(cors({
-  origin: "http://my-app-frontend-yacm.s3-website-us-east-1.amazonaws.com", // URL pública de tu bucket
-  methods: "GET,POST,PUT,DELETE",
-  credentials: true
+  origin: '*'
 }));
 
 // Definición de rutas principales
